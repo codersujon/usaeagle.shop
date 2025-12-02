@@ -1,0 +1,691 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Tiro+Bangla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #05c46b;
+    --secondary: #f53b57;
+    --red: #3c40c6;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: "Hind Siliguri", Sans-serif;
+    background-color: #f5f5f5;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+a:hover,
+a:focus,
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+form input::placeholder {
+    font-size: 15px;
+    color: #888;
+}
+
+button:focus,
+button {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+.campaign_item img {
+    width: 100%;
+    height: 100%;
+}
+
+.campaign_title {
+    font-size: 42px;
+    color: #E91E78;
+    font-weight: 700;
+}
+
+.campaign_content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px;
+    margin: 35px 0;
+}
+
+.cam_short_description * {
+    font-size: 19px !important;
+    color: #444;
+    margin: 17px 0;
+    font-weight: 700;
+}
+
+#cam_order_now {
+    background: var(--secondary);
+    color: #fff;
+    text-align: center;
+    padding: 10px 25px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 20px;
+    border: 3px solid var(--red);
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.megaoffer_btn {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 10px 25px;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.campaign_review svg {
+    color: #FBC315;
+    font-size: 13px;
+}
+
+.cam_short_description {
+    border: 2px solid #108BC3;
+    padding: 9px 7px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    color: #222;
+    font-weight: 600;
+}
+
+.cam_description {
+    margin: 20px 0;
+}
+
+.campaign_review span {
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+.cam_description ul li {
+    margin-left: 20px;
+    position: relative;
+    display: block;
+}
+
+.cam_description ul li:after {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #108BC3;
+    content: "";
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+}
+
+.cam_discount .card-header {
+    background: #108BC3;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 900;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.cam_price {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.cam_price del {
+    color: #666;
+}
+
+.campaign_offer {
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    background: var(--primary);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); */
+}
+
+button.order_place {
+    background: var(--secondary);
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+    border-radius: 5px;
+}
+
+button.order_place:hover {
+    background: var(--primary);
+}
+
+.checkout-shipping label {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.qty-cart .quantity {
+    position: relative;
+    border: 1px solid #ddd;
+    height: 46px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.qty-cart {
+    width: 150px;
+}
+
+.quantity input {
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    font-weight: 500;
+}
+
+.quantity .minus {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    height: 45px;
+    line-height: 45px;
+    width: 45px;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.quantity input {
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    font-weight: 500;
+    border: 0;
+}
+
+.quantity .plus {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    height: 45px;
+    line-height: 45px;
+    width: 45px;
+    border-left: 1px solid #ddd;
+    text-align: center;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.cam_description li,
+.cam_description p {
+    font-family: none !important;
+}
+
+.campain_review_section {
+    padding: 35px 20px;
+    text-align: center;
+    background: #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.office_address {
+    width: 100%;
+}
+
+.review_title {
+    margin-bottom: 25px;
+}
+
+.office_address {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-top: 15px;
+    display: block;
+    width: 70%;
+    padding: 20px 0;
+    border-radius: 5px;
+    background: #f8f8f8;
+}
+
+.campaign_item {
+    height: 530px;
+}
+
+.banner_t {
+    margin-top: 100px;
+}
+
+.banner_t h2 {
+    transform: translateZ(0);
+    padding: 15px 10px 10px 10px;
+    border-radius: 5px;
+    color: var(--red);
+    width: 80%;
+    margin: auto;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.3em;
+    -webkit-text-stroke-width: 0px;
+    stroke-width: 0px;
+    -webkit-text-stroke-color: #000;
+    stroke: #000;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: 3px dashed var(--red);
+
+}
+
+.banner_t h3 {
+    transform: translateZ(0);
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1.3em;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.camp_vid iframe {
+    width: 70%;
+}
+
+.camp_video_sec {
+    padding: 50px 0;
+}
+
+.ord_btn {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.ord_btn a {
+    font-size: 25px !important;
+    transition: all .5s ease;
+    transform: scale(1.2);
+    border: 3px solid #AD7419;
+    /* box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); */
+}
+
+.ord_btn a:hover {
+    transform: scale(1);
+    background: #008519 !important;
+
+}
+
+.cont_inner {
+    background: #2c6036;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.cont_num {
+    border: 3px dashed var(--primary);
+    width: 75%;
+    color: var(--primary);
+    border-radius: 10px;
+    font-size: 32px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.cont_num h2 {
+    font-size: 40px;
+}
+
+.cont_num a {
+    font-size: 45px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.discount_inn {
+    background: #ffffff;
+    width: 75%;
+    margin: 32px auto;
+    border-radius: 10px;
+    color: green;
+
+}
+
+.discount_inn h3 {
+    color: #333D51;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.discount_inn .old_price {
+    color: var(--red);
+}
+
+.discount_inn h2 {
+    font-size: 50px;
+    color: var(--secondary);
+    font-weight: 700;
+    padding: 15px 0;
+}
+
+.discount_inn .new_price,
+.discount_inn .order_k {
+    color: green;
+}
+
+.discount_inn h4 {
+    color: var(--red);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+.discount_inn del {
+    padding-bottom: 10px;
+    display: block;
+}
+
+.discount_inn h2 p {
+    border-top: 2px dashed #2c6036;
+    padding-top: 10px;
+}
+
+.rules_inner {
+    display: flex;
+    grid-gap: 15px;
+    background-color: #2c6036;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.rules_item {
+    width: 50%;
+}
+
+.rules_sec {
+    padding: 50px 0;
+}
+
+.rules_head h2 {
+    border: 9px solid green;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-family: 'Hind Siliguri', sans-serif !important;
+    font-weight: 600;
+}
+
+.rules_des {
+    padding: 14px 0;
+}
+
+.rules_des ul li {
+    display: list-item;
+    border-bottom: 1px solid green;
+    line-height: 45px;
+}
+
+
+
+.rules_des ul {
+    padding-left: 10px;
+}
+
+.rules_des ul li:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: green;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    ine-height: 1.5;
+
+}
+
+.campro_inn {
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #00893D;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 30px 40px 30px 40px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.campro_head {
+    background-color: #2c6036;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.campro_head h2 {
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 1.3em;
+    padding: 15px;
+    color: #fff;
+
+}
+
+.campro_img_item {
+    height: 330px;
+}
+
+.campro_img_item img {
+    height: 100%;
+    width: 100%;
+}
+
+.why_choose_inn {
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    border-color: #00893D;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    padding: 30px 40px 30px 40px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.why_choose_sec {
+    padding: 50px 0;
+}
+
+.why_choose_head {
+    border: 7px solid green;
+    border-radius: 10px;
+    font-size: 29px;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.why_choose {
+    background: #fff;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+}
+
+.why_choose_midd {
+    display: flex;
+    grid-gap: 15px;
+    padding: 20px 0;
+}
+
+.why_choose_widget {
+    width: 50%;
+}
+
+.why_img img {
+    width: 100%;
+}
+
+.why_choose_widget ul li {
+    display: list-item;
+    border-bottom: 1px solid green;
+    line-height: 45px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.why_choose_widget ul li:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: green;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    ine-height: 1.5;
+
+}
+
+.rev_inn {
+    padding: 20px 0;
+    border-radius: 10px;
+}
+
+.form_inn {
+    border-style: dashed;
+    border-width: 3px 3px 3px 3px;
+    border-color: var(--primary);
+    padding: 30px 40px 30px 40px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f6f6f6;
+}
+
+
+.main-section .container {
+    margin: 10px auto;
+}
+
+
+@media screen and (max-width: 480px) {
+    .banner_t h2 {
+        padding: 15px 5px 10px 5px;
+        font-size: 30px;
+    }
+
+    .camp_vid iframe {
+        width: 95%;
+    }
+
+    #cam_order_now {
+        background: var(--secondary);
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 12px;
+        border: 2px solid var(--red);
+        border-radius: 5px;
+    }
+
+    .cont_num {
+        width: 95%;
+        font-size: 32px;
+    }
+
+    .cont_num h2 {
+        font-size: 35px;
+    }
+
+    .cont_num a {
+        font-size: 35px;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: var(--secondary);
+    }
+
+    .discount_inn h3 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .discount_inn h2 {
+        font-size: 40px;
+        padding: 15px 0;
+    }
+
+    .discount_inn h4 {
+        font-size: 25px;
+    }
+
+    .form_inn {
+        border-style: dashed;
+        border-width: 3px 3px 3px 3px;
+        border-color: var(--primary);
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .campaign_offer {
+        font-size: 24px !important;
+        margin: 15px !important;
+    }
+
+    .banner_t {
+        margin-top: 50px;
+    }
+}
