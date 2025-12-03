@@ -195,7 +195,7 @@
 
                                             <div class="col-sm-12 col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label for="area">বোরকার সাইজ সিলেক্ট করুন  <span class="text-danger">*</span></label>
+                                                    <label for="area">সাইজ সিলেক্ট করুন  <span class="text-danger">*</span></label>
                                                     <select type="area" id="product_size" class="form-select @error('area') is-invalid @enderror" name="product_size">
                                                         @foreach($productsizes as $key=>$value)
                                                         <option value="{{$value->size->sizeName}}">{{$value->size->sizeName}}</option>

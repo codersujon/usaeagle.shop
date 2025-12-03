@@ -6,18 +6,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{$generalsetting->name}}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="author" content="FASHION BORKA SHOP" />
-    <meta name="description" content="Welcome to FASHION BORKA SHOP" />
+    <meta name="author" content="{{$generalsetting->name}}" />
+    <meta name="description" content="Welcome to {{$generalsetting->name}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="" />
-    <meta property="og:type" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/frontEnd2') }}/assets/imgs/theme/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontEnd2') }}/assets/imgs/theme/favicon.svg" />
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('public/frontEnd2') }}/assets/css/plugins/animate.min.css" />
-    <link rel="stylesheet" href="{{ asset('public/frontEnd2') }}/assets/css/main.css?v=5.3" />
+    <link rel="stylesheet" href="{{ asset('frontEnd2') }}/assets/css/plugins/animate.min.css" />
+    <link rel="stylesheet" href="{{ asset('frontEnd2') }}/assets/css/main.css?v=5.3" />
 
     @foreach($pixels as $pixel)
         <!-- FACEBOOK PIXEL CODE -->
@@ -57,13 +53,29 @@
         <!-- END GOOGLE TAG MANAGER -->
     @endforeach
 
+    <style>
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- Header  -->
     <header class="header-area header-style-1 header-height-2">
         <div class="mobile-promotion">
-            <h5 class="text-white">"অসম্ভব সুন্দর বোরকার কালেকশন নিয়ে আমরা আছি আপনার পাশে"</h5>
+            <h5 class="text-white">"আমাদের USA Eagle Shop-এ আপনাকে আন্তরিক স্বাগতম!"</h5>
         </div>
         <div class="header-bottom header-bottom-bg-color sticky-bar py-4">
             <div class="container">
@@ -71,8 +83,8 @@
                    <div class="col-12 d-flex justify-content-center">
                         <div class="header-wrap">
                             <div class="hotline d-flex">
-                                <img src="{{ asset('public/frontEnd2') }}/assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
-                                <p>01845-862150<span>24/7 Support Center</span></p>
+                                <img src="{{ asset('frontEnd2') }}/assets/imgs/theme/icons/icon-headphone.svg" alt="hotline" />
+                                <p>01787-388128<span>24/7 Support Center</span></p>
                             </div>
                         </div>
                    </div>
@@ -87,7 +99,7 @@
         <section class="product-tabs section-padding position-relative">
             <div class="container">
                 <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                    <h3> ঈদ এক্সকলুসিভ কালেকশন </h3>
+                    <h3>এক্সকলুসিভ কালেকশন</h3>
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content" id="myTabContent">
@@ -96,35 +108,58 @@
                             @foreach($hotdeal_top as $key => $value)
                                 <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                                     <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
+
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="{{url('campaign', $value->slug)}}" target="_blank">
-                                                    <img class="default-img" src="{{ asset($value->image ? $value->image->image : '') }}" alt="" />
-                                                    <img class="hover-img" src="{{ asset($value->image ? $value->image->image : '') }}" alt="" />
-                                                </a>
-                                            </div>
-                                            <div class="product-action-1 d-flex justify-content-center">
-                                                <a  aria-label="Product Details" class="action-btn" href="{{url('campaign', $value->slug)}}"  target="_blank"><i class="fi-rs-eye"></i></a>
-                                            </div>
-                                            <div class="product-badges product-badges-position product-badges-mrg">
-                                                <span class="new">New</span>
+                                                @php
+                                                    $youtube = $value->pro_unit; // YouTube URL
+                                                    $videoId = null;
+                                                    if ($youtube) {
+                                                        if (preg_match('/embed\/([A-Za-z0-9_-]{11})/', $youtube, $m)) {
+                                                            $videoId = $m[1];
+                                                        }
+                                                    }
+                                                @endphp
+
+                                                @if($videoId)
+                                                    <div class="video-wrapper">
+                                                        <iframe 
+                                                            src="https://www.youtube.com/embed/{{ $videoId }}" 
+                                                            frameborder="1" 
+                                                            allowfullscreen>
+                                                        </iframe>
+                                                    </div>
+                                                @else
+                                                    {{-- Backup image (optional) --}}
+                                                    <img class="default-img" src="{{ asset($value->image->image ?? '') }}" alt="">
+                                                @endif
                                             </div>
                                         </div>
+
                                         <div class="product-content-wrap">
-                                            <h2 class="mt-3"><a href="{{url('campaign', $value->slug)}}"  target="_blank">{{ $value->name }}</a></h2>
+                                            <h2 class="mt-3">
+                                                <a href="{{url('campaign', $value->slug)}}" target="_blank">
+                                                    {{ $value->name }}
+                                                </a>
+                                            </h2>
+
                                             <div class="product-card-bottom">
                                                 <div class="product-price">
                                                     <span>{{ $value->new_price }}</span>
                                                     <span class="old-price text-danger">{{ $value->old_price }}</span>
                                                 </div>
+
                                                 <div class="add-cart">
-                                                    <a class="add" href="{{url('campaign', $value->slug)}}"  target="_blank"><i class="fi-rs-shopping-cart mr-5"></i>অর্ডার করুন</a>
+                                                    <a class="add" href="{{url('campaign', $value->slug)}}" target="_blank">
+                                                        <i class="fi-rs-shopping-cart mr-5"></i>অর্ডার করুন
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
-                            @endforeach 
+                            @endforeach
                         </div>
                         <!--End product-grid-4-->
                     </div>
@@ -148,41 +183,41 @@
                 <div class="col-xl-4 col-lg-6 text-center d-none d-xl-block">
                      
                     <div class="hotline d-lg-inline-flex">
-                        <img src="{{ asset('public/frontEnd2') }}/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
-                        <p>01845862150<span>24/7 Support Center</span></p>
+                        <img src="{{ asset('frontEnd2') }}/assets/imgs/theme/icons/phone-call.svg" alt="hotline" />
+                        <p>01787388128<span>24/7 Support Center</span></p>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
                     <div class="mobile-social-icon">
                         <h6>Follow Us</h6>
-                        <a href="https://www.facebook.com/FashionBorkaShop" target="_blank"><img src="{{ asset('public/frontEnd2') }}/assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
+                        <a href="https://www.facebook.com/TheUSAEagle" target="_blank"><img src="{{ asset('frontEnd2') }}/assets/imgs/theme/icons/icon-facebook-white.svg" alt="" /></a>
                     </div>
-                    <p class="font-sm">ঈদ উপলক্ষে 2টি বোরকা অর্ডার করলে ডেলিভারি চার্জ ফ্রি!</p>
+                    <p class="font-sm">2টি অর্ডার করলে ডেলিভারি চার্জ ফ্রি!</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Vendor JS-->
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/vendor/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/slick.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/jquery.syotimer.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/waypoints.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/wow.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/perfect-scrollbar.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/magnific-popup.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/select2.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/counterup.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/jquery.countdown.min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/images-loaded.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/isotope.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/scrollup.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/jquery.vticker-min.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/jquery.theia.sticky.js"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/plugins/jquery.elevatezoom.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/slick.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/jquery.syotimer.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/waypoints.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/wow.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/perfect-scrollbar.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/magnific-popup.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/select2.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/counterup.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/images-loaded.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/isotope.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/scrollup.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/jquery.vticker-min.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/jquery.theia.sticky.js"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/plugins/jquery.elevatezoom.js"></script>
 
      <!--Start of Tawk.to Script-->
     <script type="text/javascript">
@@ -199,8 +234,8 @@
     <!--End of Tawk.to Script-->
 
     <!-- Template  JS -->
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/main.js?v=5.3"></script>
-    <script src="{{ asset('public/frontEnd2') }}/assets/js/shop.js?v=5.3"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/main.js?v=5.3"></script>
+    <script src="{{ asset('frontEnd2') }}/assets/js/shop.js?v=5.3"></script>
 </body>
 
 </html>

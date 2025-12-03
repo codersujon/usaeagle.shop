@@ -6,6 +6,7 @@
     html,
     body {
         height: 100%;
+        overflow-y: scroll;
     }
 
     body {
@@ -21,6 +22,7 @@
         padding-top: 40px;
         padding-bottom: 40px;
         background-color: #f5f5f5;
+        overflow-y: scroll;
     }
 
     .form-signin {

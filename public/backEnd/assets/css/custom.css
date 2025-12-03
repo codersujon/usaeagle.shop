@@ -217,7 +217,6 @@ ul#side-menu li {
 }
 
 .bg-theme{
-    /* background-color: #961d9e; */
     background-color: #25103d;
 }
 
@@ -226,8 +225,7 @@ ul#side-menu li {
 }
 
 #sidebar-menu .menuitem-active .active {
-    color: #fff;
-    /* background: #25103d; */
+    color: #25103d;
 }
 
 #sidebar-menu>ul>li {

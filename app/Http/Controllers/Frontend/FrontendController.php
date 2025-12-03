@@ -77,7 +77,7 @@ class FrontendController extends Controller
     public function index(){
         $hotdeal_top = Product::where(['status' => 1, 'topsale' => 1])
                 ->orderBy('id', 'DESC')
-                ->select('id', 'name', 'slug', 'new_price', 'old_price')
+                ->select('id', 'name', 'slug', 'new_price', 'old_price','pro_unit')
                 ->with('prosizes', 'procolors', 'image')
                 ->limit(12)
                 ->get();
