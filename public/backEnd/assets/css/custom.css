@@ -217,20 +217,21 @@ ul#side-menu li {
 }
 
 .bg-theme{
-    background-color: #25103d;
+    background-color: #1b181f;
 }
 
 .left-side-menu{
-    background-color: #961d9e;
+    background: linear-gradient(135deg, #104d01 0%, #1DB954 100%);
 }
 
 #sidebar-menu .menuitem-active .active {
-    color: #25103d;
+    color: #fff;
 }
 
 #sidebar-menu>ul>li {
    border: 0;
 }
+
 #sidebar-menu>ul>li>a {
     color: #fff;
     padding: 12px 20px;
@@ -241,7 +242,7 @@ ul#side-menu li {
 #sidebar-menu>ul>li>a:active,
 #sidebar-menu>ul>li>a:hover,
 #sidebar-menu>ul>li>a:focus{
-    background-color: #25103d;
+    background-color: #1b181f;
     color: #fff;
 }
 
@@ -256,6 +257,20 @@ ul#side-menu li {
 .nav-second-level li a:active,
 .nav-second-level li a:focus, 
 .nav-second-level li a:hover {
-    background-color: #25103d;
+    background-color: #1b181f;
     color: #fff;
+}
+
+
+@media (max-width: 480px) {
+    
+    body[data-leftbar-size="condensed"] .left-side-menu #sidebar-menu > ul > li:hover > .collapse > ul a 
+    body[data-leftbar-size="condensed"] .left-side-menu #sidebar-menu > ul > li:hover > .collapsing > ul a{
+        color: #1b181f !important;
+    }
+
+    body[data-leftbar-size="condensed"] .left-side-menu #sidebar-menu > ul > li:hover > .collapse > ul a:hover, 
+    body[data-leftbar-size="condensed"] .left-side-menu #sidebar-menu > ul > li:hover > .collapsing > ul a:hover{
+        color: #fff !important;
+    }
 }

@@ -10,18 +10,18 @@
     <link rel="shortcut icon" href="{{asset($generalsetting->favicon)}}" />
 
     <!-- Bootstrap css -->
-    <link href="{{asset('backEnd/')}}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('public/backEnd/')}}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
-    <link href="{{asset('backEnd/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('public/backEnd/')}}/assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- icons -->
-    <link href="{{asset('backEnd/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('public/backEnd/')}}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- toastr css -->
-    <link rel="stylesheet" href="{{asset('backEnd/')}}/assets/css/toastr.min.css" />
+    <link rel="stylesheet" href="{{asset('public/backEnd/')}}/assets/css/toastr.min.css" />
     <!-- custom css -->
-    <link href="{{asset('backEnd/')}}/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('public/backEnd/')}}/assets/css/custom.css" rel="stylesheet" type="text/css" />
     <!-- Head js -->
     @yield('css')
-    <script src="{{asset('backEnd/')}}/assets/js/head.js"></script>
+    <script src="{{asset('public/backEnd/')}}/assets/js/head.js"></script>
   </head>
 
   <!-- body start -->
@@ -197,7 +197,7 @@
         <div class="h-100" data-simplebar>
           <!-- User box -->
           <div class="user-box text-center">
-            <img src="{{asset('backEnd/')}}/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md" />
+            <img src="{{asset('public/backEnd/')}}/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md" />
             <div class="dropdown">
               <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown">{{Auth::user()->name}}</a>
               <div class="dropdown-menu user-pro-dropdown">
@@ -653,13 +653,13 @@
     <div class="rightbar-overlay"></div>
 
     <!-- Vendor js -->
-    <script src="{{asset('backEnd/')}}/assets/js/vendor.min.js"></script>
+    <script src="{{asset('public/backEnd/')}}/assets/js/vendor.min.js"></script>
 
     <!-- App js -->
-    <script src="{{asset('backEnd/')}}/assets/js/app.min.js"></script>
-    <script src="{{asset('backEnd/')}}/assets/js/toastr.min.js"></script>
+    <script src="{{asset('public/backEnd/')}}/assets/js/app.min.js"></script>
+    <script src="{{asset('public/backEnd/')}}/assets/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
-    <script src="{{asset('backEnd/')}}/assets/js/sweetalert.min.js"></script>
+    <script src="{{asset('public/backEnd/')}}/assets/js/sweetalert.min.js"></script>
     <script type="text/javascript">
       $(".delete-confirm").click(function (event) {
         var form = $(this).closest("form");
